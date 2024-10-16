@@ -1,15 +1,48 @@
-﻿
+﻿using System.Runtime.CompilerServices;
+
+int recruted = 0;
+
+
 Console.WriteLine("välkommen till rekruterings hallen.");
 Console.WriteLine("Din uppgift är att rekrytera tre kandidater in i armen.");
 
-List<string> recruts = ["Kim", "Paulo", "Christer", "filip", "Marlon", "Anika", "Jenny"];
+List<string> recruts = ["kim", "paulo", "christer", "filip", "marlon", "anika", "jenny", ];
 
-Console.WriteLine("Alla rekryter");
-for (int all = 0; all < recruts.Count; all++)
+
+
+while (recruted != 3)
 {
-    Console.WriteLine(recruts[all]);
-}
+    Console.WriteLine(""); // så det blir ett mellan rum
+    Console.WriteLine("Alla rekryter:");
+    for (int all = 0; all < recruts.Count; all++)
+    {
+        Console.WriteLine(recruts[all]);
+    }
 
+    string recruiting = Console.ReadLine();
+    recruiting.ToLower();
+
+    while (recruts.Contains(recruiting) == false)
+    {
+        Console.WriteLine("sktrv ett av rekryternas namn");
+        recruiting = Console.ReadLine().ToLower();
+    }
+
+    recruts.Remove($"{recruiting}");
+
+
+    List<string> isRecruted = [""];
+
+    isRecruted.Add($"{recruiting}");
+
+    Console.WriteLine("Rekryterade");
+    for (int allRecruted = 0; allRecruted < isRecruted.Count; allRecruted++)
+    {
+        Console.WriteLine(isRecruted[allRecruted]);
+    }
+
+    recruted++;
+}
 
 // LISTOR
 
